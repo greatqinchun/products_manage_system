@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>客户管理</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <h2>管理菜单</h2>
+        <a href="/products.html">产品管理</a>
+        <a href="/customers.html" class="active">客户管理</a>
+        <a href="/salespersons.html">销售人员管理</a>
+        <a href="/sales-records.html">销售流水管理</a>
+        <a href="/inventory-logs.html">库存变动日志</a>
+      </aside>
+      <main class="main-panel">
+        <div class="topbar">
+          <h1>客户管理</h1>
+          <button id="logoutBtn" class="danger">退出登录</button>
+        </div>
+        <p class="subtitle">当前用户：<span id="currentUser"></span></p>
+
+        <section class="card">
+          <h2 id="formTitle">新增客户</h2>
+          <form id="customerForm" class="form-grid">
+            <div class="form-item">
+              <label for="customerName">客户名称</label>
+              <input id="customerName" type="text" required />
+            </div>
+            <div class="form-item">
+              <label for="customerPhone">客户电话</label>
+              <input id="customerPhone" type="text" required />
+            </div>
+            <div class="form-item">
+              <label for="invoiceTitle">发票抬头</label>
+              <input id="invoiceTitle" type="text" required />
+            </div>
+            <div class="form-item">
+              <label for="taxNo">税号</label>
+              <input id="taxNo" type="text" required />
+            </div>
+            <div class="form-item">
+              <label for="address">地址</label>
+              <input id="address" type="text" required />
+            </div>
+            <div class="row form-actions">
+              <button type="submit">保存</button>
+              <button type="button" id="cancelEditBtn" class="secondary hidden">取消编辑</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="card">
+          <div class="section-head">
+            <h2>客户列表</h2>
+            <div class="search-bar">
+              <input id="customerSearchInput" type="text" placeholder="按客户名模糊查询" />
+              <button type="button" id="customerSearchBtn">查询</button>
+            </div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>客户名称</th>
+                <th>客户电话</th>
+                <th>发票抬头</th>
+                <th>税号</th>
+                <th>地址</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="customerTbody"></tbody>
+          </table>
+        </section>
+        <p id="message"></p>
+      </main>
+    </div>
+    <script src="./customers.js"></script>
+  </body>
+</html>

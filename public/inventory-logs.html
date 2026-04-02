@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>库存变动日志</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <h2>管理菜单</h2>
+        <a href="/products.html">产品管理</a>
+        <a href="/customers.html">客户管理</a>
+        <a href="/salespersons.html">销售人员管理</a>
+        <a href="/sales-records.html">销售流水管理</a>
+        <a href="/inventory-logs.html" class="active">库存变动日志</a>
+      </aside>
+      <main class="main-panel">
+        <div class="topbar">
+          <h1>库存变动日志</h1>
+          <button id="logoutBtn" class="danger">退出登录</button>
+        </div>
+        <p class="subtitle">当前用户：<span id="currentUser"></span></p>
+        <section class="card">
+          <div class="section-head">
+            <h2>日志列表（最近300条）</h2>
+            <div class="search-bar">
+              <input id="logSearchInput" type="text" placeholder="按商品名或备注模糊查询" />
+              <button type="button" id="logSearchBtn">查询</button>
+            </div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>时间</th>
+                <th>产品</th>
+                <th>类型</th>
+                <th>变动数量</th>
+                <th>变动前</th>
+                <th>变动后</th>
+                <th>来源</th>
+                <th>备注</th>
+              </tr>
+            </thead>
+            <tbody id="inventoryLogTbody"></tbody>
+          </table>
+        </section>
+        <p id="message"></p>
+      </main>
+    </div>
+    <script src="./inventory-logs.js"></script>
+  </body>
+</html>

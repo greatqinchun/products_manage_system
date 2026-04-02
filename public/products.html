@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>产品管理</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <h2>管理菜单</h2>
+        <a href="/products.html" class="active">产品管理</a>
+        <a href="/customers.html">客户管理</a>
+        <a href="/salespersons.html">销售人员管理</a>
+        <a href="/sales-records.html">销售流水管理</a>
+        <a href="/inventory-logs.html">库存变动日志</a>
+      </aside>
+      <main class="main-panel">
+        <div class="topbar">
+          <h1>产品管理</h1>
+          <button id="logoutBtn" class="danger">退出登录</button>
+        </div>
+        <p class="subtitle">当前用户：<span id="currentUser"></span></p>
+
+        <section class="card">
+          <h2 id="formTitle">新增产品</h2>
+          <form id="productForm" class="form-grid">
+            <div class="form-item">
+              <label for="productName">产品名称</label>
+              <input id="productName" type="text" required />
+            </div>
+            <div class="form-item">
+              <label for="productPrice">价格</label>
+              <input id="productPrice" type="number" step="0.01" min="0" required />
+            </div>
+            <div class="form-item">
+              <label for="productStock">库存</label>
+              <input id="productStock" type="number" min="0" required />
+            </div>
+            <div class="row form-actions">
+              <button type="submit" id="saveBtn">保存</button>
+              <button type="button" id="cancelEditBtn" class="secondary hidden">取消编辑</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="card">
+          <div class="section-head">
+            <h2>产品列表</h2>
+            <div class="search-bar">
+              <input id="productSearchInput" type="text" placeholder="商品名" />
+              <button type="button" id="productSearchBtn">查询</button>
+            </div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>名称</th>
+                <th>价格</th>
+                <th>库存</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="productTbody"></tbody>
+          </table>
+        </section>
+
+        <p id="message"></p>
+      </main>
+    </div>
+
+    <script src="./products.js"></script>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>销售流水管理</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <h2>管理菜单</h2>
+        <a href="/products.html">产品管理</a>
+        <a href="/customers.html">客户管理</a>
+        <a href="/salespersons.html">销售人员管理</a>
+        <a href="/sales-records.html" class="active">销售流水管理</a>
+        <a href="/inventory-logs.html">库存变动日志</a>
+      </aside>
+      <main class="main-panel">
+        <div class="topbar">
+          <h1>销售流水管理</h1>
+          <button id="logoutBtn" class="danger">退出登录</button>
+        </div>
+        <p class="subtitle">当前用户：<span id="currentUser"></span></p>
+
+        <section class="card">
+          <h2 id="formTitle">新增销售流水</h2>
+          <form id="recordForm" class="form-grid">
+            <div class="form-item">
+              <label for="productSelect">产品名称</label>
+              <select id="productSelect" required></select>
+            </div>
+            <div class="form-item">
+              <label for="salesDate">销售日期</label>
+              <input id="salesDate" type="date" required />
+            </div>
+            <div class="form-item">
+              <label for="salesQuantity">销售数量</label>
+              <input id="salesQuantity" type="number" min="1" required />
+            </div>
+            <div class="form-item">
+              <label for="invoiceNo">发票号</label>
+              <input id="invoiceNo" type="text" required />
+            </div>
+            <div class="form-item">
+              <label for="customerSelect">客户名称</label>
+              <select id="customerSelect" required></select>
+            </div>
+            <div class="form-item">
+              <label for="salespersonSelect">销售人员</label>
+              <select id="salespersonSelect" required></select>
+            </div>
+            <div class="row form-actions">
+              <button type="submit">保存</button>
+              <button type="button" id="cancelEditBtn" class="secondary hidden">取消编辑</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="card">
+          <div class="section-head">
+            <h2>销售流水列表</h2>
+            <div class="search-bar">
+              <input id="recordProductSearchInput" type="text" placeholder="按药品名模糊查询" />
+              <input id="recordCustomerSearchInput" type="text" placeholder="按客户名模糊查询" />
+              <button type="button" id="recordSearchBtn">查询</button>
+            </div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>产品ID</th>
+                <th>产品名称</th>
+                <th>销售日期</th>
+                <th>销售数量</th>
+                <th>发票号</th>
+                <th>客户名称</th>
+                <th>销售人员名称</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="recordTbody"></tbody>
+          </table>
+        </section>
+        <p id="message"></p>
+      </main>
+    </div>
+    <script src="./sales-records.js"></script>
+  </body>
+</html>

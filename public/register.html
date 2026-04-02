@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>甘欣欣公司库存管理系统 - 注册用户</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>甘欣欣公司库存管理系统</h1>
+      <p class="subtitle">注册用户</p>
+      <section class="card">
+        <h2>注册</h2>
+        <form id="registerForm" class="form-grid">
+          <div class="form-item">
+            <label for="regUsername">用户名</label>
+            <input id="regUsername" type="text" required />
+          </div>
+          <div class="form-item">
+            <label for="regPassword">密码</label>
+            <input id="regPassword" type="password" required />
+          </div>
+          <div class="row form-actions">
+            <button type="submit">注册</button>
+            <button type="button" id="goLoginBtn" class="secondary">返回登录</button>
+          </div>
+        </form>
+      </section>
+      <p id="message"></p>
+    </main>
+    <script src="./register.js"></script>
+  </body>
+</html>

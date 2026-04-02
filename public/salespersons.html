@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>销售人员管理</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <h2>管理菜单</h2>
+        <a href="/products.html">产品管理</a>
+        <a href="/customers.html">客户管理</a>
+        <a href="/salespersons.html" class="active">销售人员管理</a>
+        <a href="/sales-records.html">销售流水管理</a>
+        <a href="/inventory-logs.html">库存变动日志</a>
+      </aside>
+      <main class="main-panel">
+        <div class="topbar">
+          <h1>销售人员管理</h1>
+          <button id="logoutBtn" class="danger">退出登录</button>
+        </div>
+        <p class="subtitle">当前用户：<span id="currentUser"></span></p>
+
+        <section class="card">
+          <h2 id="formTitle">新增销售人员</h2>
+          <form id="salespersonForm" class="form-grid">
+            <div class="form-item">
+              <label for="staffNo">工号</label>
+              <input id="staffNo" type="text" required />
+            </div>
+            <div class="form-item">
+              <label for="staffName">姓名</label>
+              <input id="staffName" type="text" required />
+            </div>
+            <div class="form-item">
+              <label for="gender">性别</label>
+              <select id="gender" required>
+                <option value="">请选择性别</option>
+                <option value="男">男</option>
+                <option value="女">女</option>
+              </select>
+            </div>
+            <div class="form-item">
+              <label for="birthday">生日</label>
+              <input id="birthday" type="date" required />
+            </div>
+            <div class="form-item">
+              <label for="phone">电话</label>
+              <input id="phone" type="text" required />
+            </div>
+            <div class="form-item">
+              <label for="homeAddress">家庭住址</label>
+              <input id="homeAddress" type="text" required />
+            </div>
+            <div class="row form-actions">
+              <button type="submit">保存</button>
+              <button type="button" id="cancelEditBtn" class="secondary hidden">取消编辑</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="card">
+          <div class="section-head">
+            <h2>销售人员列表</h2>
+            <div class="search-bar">
+              <input id="salespersonSearchInput" type="text" placeholder="按姓名模糊查询" />
+              <button type="button" id="salespersonSearchBtn">查询</button>
+            </div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>工号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>生日</th>
+                <th>电话</th>
+                <th>家庭住址</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="salespersonTbody"></tbody>
+          </table>
+        </section>
+        <p id="message"></p>
+      </main>
+    </div>
+    <script src="./salespersons.js"></script>
+  </body>
+</html>
